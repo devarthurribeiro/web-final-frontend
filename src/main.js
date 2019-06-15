@@ -1,10 +1,11 @@
 import Vue from 'vue';
+import './plugins/axios'
 import App from './App.vue';
 import router from './router';
 
 import Ionic from '@ionic/vue';
 import '@ionic/core/css/ionic.bundle.css';
-import store from './store'
+import store from './store/'
 
 Vue.use(Ionic);
 Vue.config.productionTip = false;
