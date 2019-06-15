@@ -1,19 +1,24 @@
 <template>
   <div class="ion-page">
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Hello World</ion-title>
+      <ion-toolbar color="primary">
+        <ion-title>Feirinha EAJ</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <h1>Welcome To @ionic/vue</h1>
-      <img alt="Vue logo" src="../assets/logo.png">
+      <h1>Produtos</h1>
+      <ProductList/>
     </ion-content>
   </div>
 </template>
 
 <script>
+import ProductList from '../components/ProductList'
+
 export default {
   name: "home",
+  components: {
+    ProductList
+  }
 };
 </script>
