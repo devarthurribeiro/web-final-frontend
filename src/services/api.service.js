@@ -43,21 +43,17 @@ export default ApiService;
 export const ProductsService = {
   query(type, params) {
     return ApiService.query("products", {
-      params: params
+      params
     });
   },
   get(id) {
     return ApiService.get("products", id);
   },
   create(params) {
-    return ApiService.post("products", {
-      article: params
-    });
+    return ApiService.post("products", params);
   },
   update(id, params) {
-    return ApiService.update("products", id, {
-      article: params
-    });
+    return ApiService.update("products", id, params);
   },
   delete(id) {
     return ApiService.delete(`products/${id}`);
