@@ -1,7 +1,8 @@
 import Vue from 'vue';
-import './plugins/axios'
 import App from './App.vue';
 import router from './router';
+import './filters/'
+import './plugins/axios'
 import './components/_globals'
 
 import Ionic from '@ionic/vue';

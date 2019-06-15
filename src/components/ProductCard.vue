@@ -4,7 +4,7 @@
       <img :src="product.image" :alt="product.name" />
       <ion-card-header>
         <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
-        <ion-card-title>R$ {{product.price}}</ion-card-title>
+        <ion-card-title>{{product.price | currency}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
       </ion-card-content>

@@ -2,9 +2,7 @@
   <div>
     <ion-row>
       <ion-col v-for="product in products.list" :key="product.id" size="12" size-md="4">
-        <div @click="openModal(product)">
-          <ProductCard :product="product" />
-        </div>
+        <ProductCard @click.native="openModal(product)" :product="product" />
       </ion-col>
     </ion-row>
   </div>
