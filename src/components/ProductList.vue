@@ -12,14 +12,10 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import ProductCard from './ProductCard'
 import Modal from './Modal.vue'
 
 export default {
   name: "ProductList",
-  components: {
-    ProductCard
-  },
   created() {
     this.fetchProducts()
   },
