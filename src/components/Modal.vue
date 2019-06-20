@@ -9,7 +9,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
-      {{ product }}
+      <Product :product="product" />
     </ion-content>
   </div>
 </template>
@@ -27,8 +27,14 @@ export default {
   },
   methods: {
     async close() {
-      console.log()
+      this.$ionic.modalController.dismiss()
     }
   }
 }
 </script>
+
+<style>
+.product-details img {
+  border-radius: 8px;
+}
+</style>
