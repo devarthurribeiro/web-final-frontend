@@ -1,6 +1,9 @@
 <template>
   <div>
     <ion-row>
+      <ion-col size="12">
+        <ion-searchbar :value="search" placeholder="O que você procura?" @ionInput="search = $event.target.value" @ionClear="search = ''" />
+      </ion-col>
       <ion-col v-for="product in products.list" :key="product.id" size="12" size-md="4">
         <ProductCard @click.native="openModal(product)" :product="product" />
       </ion-col>
@@ -17,6 +20,9 @@ export default {
   created() {
     this.fetchProducts()
   },
+  data: () => ({
+    search: ''
+  }),
   computed: {
     ...mapState(['products'])
   },

@@ -6,8 +6,14 @@
         <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
         <ion-card-title>{{product.price | currency}}</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-      </ion-card-content>
+      <ion-item>
+        <ion-labe class="ligth">
+          Disponível
+        </ion-labe>
+        <ion-button fill="outline" color="dark" slot="end">
+          <ion-icon name="heart" color="danger" />
+        </ion-button>
+      </ion-item>
     </ion-card>
   </div>
 </template>
