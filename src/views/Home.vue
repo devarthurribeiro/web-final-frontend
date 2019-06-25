@@ -23,14 +23,12 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item>Comprar</ion-item>
-          <ion-item>Vender</ion-item>
-          <ion-item>Conta</ion-item>
-          <ion-item>Sair</ion-item>
+          <ion-item @click="goTo('/')">Comprar</ion-item>
+          <ion-item @click="goTo('/product-add')">Vender</ion-item>
+          <ion-item @click="goTo('/profile')">Conta</ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
-
     <ion-content class="ion-padding">
       <ion-vue-router />
     </ion-content>
@@ -43,8 +41,12 @@ import LoginModal from '../components/LoginModal.vue'
 export default {
   name: "home",
   methods: {
+    goTo(path) {
+      this.$router.push(path)
+      this.$refs.menu.close()
+    },
     openMenu() {
-      this.$refs.menu.open();
+      this.$refs.menu.open()
     },
     openLoginModal(product) {
       return this.$ionic.modalController

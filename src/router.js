@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import Home from './views/Home.vue';
+import Profile from './views/Profile.vue';
 import Products from './views/Products.vue';
 import ProductAdd from './views/ProductAdd.vue';
+
+import LoginForm from './components/LoginForm.vue';
+
 import {
   IonicVueRouter
 } from '@ionic/vue';
@@ -23,6 +27,14 @@ export default new IonicVueRouter({
         path: '/product-add',
         name: 'ProductAdd',
         component: ProductAdd
+      }, {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+      }, {
+        path: '/login',
+        name: 'Login',
+        component: LoginForm
       }, ]
     },
     {
