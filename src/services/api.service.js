@@ -60,3 +60,12 @@ export const ProductsService = {
     return ApiService.delete(`products/${id}`);
   }
 };
+
+export const UserService = {
+  get(id) {
+    return ApiService.get("users", id);
+  },
+  update(id, params) {
+    return ApiService.update("users", id, params);
+  },
+}

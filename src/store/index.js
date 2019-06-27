@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import auth from './auth.module'
+import user from './user.module'
 import products from './products.module'
 
 export default new Vuex.Store({
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   },
   modules: {
     auth,
+    user,
     products,
   }
 })

@@ -11,12 +11,15 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
-      <LoginForm @onSubmit="login" />
+      <LoginForm @onSubmit="onLogin" />
     </ion-content>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import store from '@/store'
+
 export default {
   name: 'Modal',
   props: {
@@ -28,8 +31,10 @@ export default {
     }
   },
   methods: {
-    async login() {
-
+    ...mapActions(['login']),
+    async onLogin(credential) {
+      store.dispatch('login', credential)
+      this.close()
     },
     close() {
       this.$ionic.modalController.dismiss()
