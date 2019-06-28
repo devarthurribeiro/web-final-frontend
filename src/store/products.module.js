@@ -12,6 +12,9 @@ export default {
     setProducts(state, payload) {
       state.list = payload
     },
+    removeProduct(state, id) {
+      state.list = state.list.filter(p => p.id !== id)
+    },
     setCategories(state, payload) {
       state.categories = payload
     }
@@ -33,6 +36,7 @@ export default {
       const {
         data
       } = await ProductsService.delete(payload)
+      context.commit('removeProduct', payload)
     }
   }
 }
