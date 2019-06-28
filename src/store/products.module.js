@@ -1,14 +1,19 @@
 import {
-  ProductsService
+  ProductsService,
+  CategoryService
 } from '@/services/api.service'
 
 export default {
   state: {
-    list: []
+    list: [],
+    categories: []
   },
   mutations: {
     setProducts(state, payload) {
       state.list = payload
+    },
+    setCategories(state, payload) {
+      state.categories = payload
     }
   },
   actions: {
@@ -17,6 +22,12 @@ export default {
         data
       } = await ProductsService.query()
       context.commit('setProducts', data)
+    },
+    async fetchCategories(context) {
+      const {
+        data
+      } = await CategoryService.query()
+      context.commit('setCategories', data)
     }
   }
 }

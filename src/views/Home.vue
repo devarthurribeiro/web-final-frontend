@@ -9,9 +9,14 @@
         </ion-buttons>
         <ion-title>Feirinha EAJ</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="openLoginModal" fill="outline">
+          <ion-button v-if="!isAuthenticated" @click="openLoginModal" fill="outline">
             Login
           </ion-button>
+          <div v-else>
+            <ion-button @click="logout" fill="outline">
+              Sair
+            </ion-button>
+          </div>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -23,8 +28,9 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item @click="goTo('/')">Comprar</ion-item>
+          <ion-item @click="goTo('/')">Inicio</ion-item>
           <ion-item @click="goTo('/product-add')">Vender</ion-item>
+          <ion-item @click="goTo('/product-list')">Meus anúncios</ion-item>
           <ion-item @click="goTo('/profile')">Conta</ion-item>
         </ion-list>
       </ion-content>
@@ -36,11 +42,17 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex'
 import LoginModal from '../components/LoginModal.vue'
 
 export default {
   name: "home",
+  computed: {
+    ...mapGetters(['isAuthenticated']),
+    ...mapState(['auth'])
+  },
   methods: {
+    ...mapActions(['logout']),
     goTo(path) {
       this.$router.push(path)
       this.$refs.menu.close()

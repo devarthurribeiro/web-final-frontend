@@ -69,3 +69,14 @@ export const UserService = {
     return ApiService.update("users", id, params);
   },
 }
+
+export const CategoryService = {
+  query(type, params) {
+    return ApiService.query("categories", {
+      params
+    });
+  },
+  get(id) {
+    return ApiService.get("categories", id);
+  }
+}
