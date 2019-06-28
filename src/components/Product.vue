@@ -7,15 +7,17 @@
     <ion-list>
       <ion-item>
         <ion-icon slot="start" name="contact"></ion-icon>
-        <ion-label>Arthur Ribeiro</ion-label>
+        <ion-label>{{product.user.name}}</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
-        <ion-label>(84) 99123-0249</ion-label>
+        <ion-label>
+          <a :href="'https://wa.me/'+product.user.phone">{{product.user.phone}}</a>
+        </ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="school"></ion-icon>
-        <ion-label>Tads</ion-label>
+        <ion-label>{{product.user.course}}</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="list"></ion-icon>
