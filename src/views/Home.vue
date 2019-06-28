@@ -13,7 +13,7 @@
             Login
           </ion-button>
           <div v-else>
-            <ion-button @click="logout" fill="outline">
+            <ion-button @click="logoutApp" fill="outline">
               Sair
             </ion-button>
           </div>
@@ -56,6 +56,10 @@ export default {
     goTo(path) {
       this.$router.push(path)
       this.$refs.menu.close()
+    },
+    logoutApp() {
+      this.logout();
+      this.$router.push("/")
     },
     openMenu() {
       this.$refs.menu.open()

@@ -28,6 +28,11 @@ export default {
         data
       } = await CategoryService.query()
       context.commit('setCategories', data)
+    },
+    async remove(context, payload) {
+      const {
+        data
+      } = await ProductsService.delete(payload)
     }
   }
 }

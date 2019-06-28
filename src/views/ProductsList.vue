@@ -2,12 +2,15 @@
   <ion-content class="ion-padding">
     <h1>Anúncios</h1>
     <ion-list>
-      <ion-item v-for="product in products.list">
+      <ion-item v-for="product in productsUser">
+        <ion-avatar slot="start">
+          <img :src="product.image">
+        </ion-avatar>
         <ion-label>
           {{product.name}}
         </ion-label>
         <ion-button @click="$router.push('/product-add/'+ product.id)" slot="end">Editar</ion-button>
-        <ion-button @click="remove" slot="end" color="danger">Remover</ion-button>
+        <ion-button @click="removeProduct(product)" slot="end" color="danger" fill="outline">Remover</ion-button>
       </ion-item>
     </ion-list>
   </ion-content>
@@ -23,12 +26,18 @@ export default {
     }
   },
   computed: {
-    ...mapState(['products'])
+    ...mapState(['products', 'auth']),
+    productsUser() {
+      return this.products.list.filter(p => p.user.id = this.auth.user.id);
+    }
   },
   name: 'ProductsList',
   methods: {
-    async remove() {
-
+    ...mapActions(['remove']),
+    async removeProduct(product) {
+      if (confirm("Apagar?")) {
+        this.remove(product.id)
+      }
     }
   }
 }
