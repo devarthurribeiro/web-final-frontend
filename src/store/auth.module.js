@@ -1,5 +1,6 @@
 import ApiService from "@/services/api.service"
 import JwtService from "@/services/jwt.service"
+import Swal from 'sweetalert2'
 
 export default {
   state: {
@@ -24,6 +25,7 @@ export default {
         context.commit('setAuth', data)
       } catch (error) {
         alert(error)
+        Swal.fire('Login ou senha inválido', error, 'error')
       }
     },
     async logout(context) {

@@ -54,8 +54,13 @@ export default {
   methods: {
     ...mapActions(['logout']),
     goTo(path) {
-      this.$router.push(path)
-      this.$refs.menu.close()
+      if (!this.auth.isAuthenticated) {
+        this.$refs.menu.close()
+        if (path != '/') this.openLoginModal()
+      } else {
+        this.$router.push(path)
+        this.$refs.menu.close()
+      }
     },
     logoutApp() {
       this.logout();
